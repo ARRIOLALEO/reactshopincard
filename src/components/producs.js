@@ -1,1 +1,0 @@
-:webkitRequestAnimationFrame(:k)

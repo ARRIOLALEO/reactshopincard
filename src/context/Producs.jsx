@@ -1,21 +1,25 @@
-import React, {createContext} from 'react'
+import React, {createContext, useState , useEffect} from 'react'
 
-export const allProducts = createContext();
+export const AllProducts = createContext();
 const axios = require('axios').default
-async function getUsers(){
-  try{
-    const response= await axios.get('https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json')
-    return(response.data)
-  }catch(error){
-    console.log(error)
-  }
-}
+
 const  ProductsProvider=({children}) =>{
-  const data = getUsers();
+  const [products,setProducts] = useState([])
+  useEffect(()=>{
+    async function getMyProducts(){
+      try{
+        const response= await axios.get('https://res.cloudinary.com/sivadass/raw/upload/v1535817394/json/products.json')
+        setProducts(response)
+      }catch(error){
+        console.log(error)
+      }
+    }
+    getMyProducts()
+  },[])
   return(
-  <allProducts.Provider value={data}>
+  <AllProducts.Provider value={products}>
     {children}
-  </allProducts.Provider>
+  </AllProducts.Provider>
   )
 }
 
