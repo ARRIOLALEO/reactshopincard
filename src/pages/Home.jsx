@@ -1,21 +1,20 @@
-import React   from 'react'
+import React,{useState}  from 'react'
 import Header from '../components/Header.jsx'
 import {AllProducts} from '../context/Producs.jsx'
+import DisplayProduct from '../components/Produc.jsx'
 const Home = (props) =>{
   return (
-    <div className="bodyPage">
+    <>
       <Header/>
-      <AllProducts.Consumer>{
-        data=>{
-          if (data.data != null){
-            data.data.forEach(product=>{
-              console.log(product)
-            })
-          }
-        }
-        }
+      <div className="products">
+      <AllProducts.Consumer>
+        {context=>(
+          context?(<DisplayProduct elements={context.data}/>):("<h2>im loading</h2>") 
+        )}
+      
         </AllProducts.Consumer>
-    </div>
+      </div>
+    </>
   )
 
 }

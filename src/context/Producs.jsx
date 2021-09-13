@@ -4,7 +4,7 @@ export const AllProducts = createContext();
 const axios = require('axios').default
 
 const  ProductsProvider=({children}) =>{
-  const [products,setProducts] = useState([])
+  const [products,setProducts] = useState([""])
   useEffect(()=>{
     async function getMyProducts(){
       try{

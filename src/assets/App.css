@@ -1,12 +1,90 @@
+#root{
+  background-color:#f4f2f1;
+}
 .App {
   text-align: center;
 }
-
+/*css desktop version of the header*/
+.header{
+  display:flex;
+  flex-wrap:wrap;
+  height:100px;
+  justify-content:space-around;
+  background-color:white;
+  margin-bottom:2%;
+}
+.logo{
+  display:flex;
+  align-items:center;
+}
+.search{
+  display:flex;
+  align-items:center;
+}
+.cart{
+  display:flex;
+  align-items:center
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
+/* all producds general css */
+.products{
+  display:flex;
+  max-width:980px;
+  flex-wrap:wrap;
+  justify-content:space-around;
+  margin:auto;
+}
+.productImage{
+  max-width:100%;
+}
+.cardProduc{
+  max-width:15%;
+  padding:2% 1%;
+  margin-bottom:2%;
+}
+/*this is the card of the product desktop version*/
 
+.cardProduc{
+  background-color:white;
+  border-radius:1%;
+}
+.information{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  margin-bottom:15px;
+  color:#92916c;
+  text-shadow:1px 1px 1px #5a5959;
+}
+/*this is the quantity*/
+.quantity{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.quantityInput{
+  max-width:44%;
+  padding:0% 3%;
+  margin:0% 1%;
+}
+.circularButton{
+  border-radius:15%;
+  background-color:green;
+  color:white;
+  padding:4%;
+  min-width:32px;
+}
+/* button add to cart*/
+.addToCart{
+  width:100%;
+  margin-top:3%;
+  color:green;
+  height:33px;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

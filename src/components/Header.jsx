@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link }from 'react-router-dom';
 import Search from './Search.jsx';
+import logo from '../assets/bb_logo.png'
 import Cart from './Cart.jsx'
 const Header = (props) =>{
   return(
-        <div>
+        <div className="header">
           <div className="logo">
             <Link to="/"> 
             <img
-              className="logo"
-              src=""
+              src={logo}
               alt="This is the logo of the company"
             />
             </Link>
           </div>
-          <div>
+          <div className="search">
             <Search/>
           </div>
-          <div>
+          <div className="cart">
             <Cart/>
           </div>
         </div>
