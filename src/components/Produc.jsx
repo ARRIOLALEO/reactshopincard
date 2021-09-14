@@ -1,6 +1,12 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 function DisplayProduct(props) {
+  const [quantity,setQuantity] = useState(0)
+  function manageQuantity(operation,value){
+    if (operation == true){
+      setQuantity(quantity+1)
+    }
+  }
   return(
     <>
       {props.elements?(props.elements.map(element=>{
@@ -14,8 +20,8 @@ function DisplayProduct(props) {
             </div>
             <div className="quantity">
               <button className="circularButton">-</button>
-              <input  className="quantityInput" type="text" pattern="[0-9]"/>
-              <button className="circularButton">+</button>
+              <input  className="quantityInput" type="text" pattern="[0-9]" value={quantity}/>
+              <button className="circularButton" onClick={()=>manageQuantity(true,quantity)}>+</button>
             </div>
             <div className="addToCartBtn">
               <button className="addToCart">ADD TO CART</button>
