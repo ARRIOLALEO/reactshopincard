@@ -85,6 +85,22 @@
   color:green;
   height:33px;
 }
+
+/*css of the footer */
+.footer{
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  background-color:#4b7d0e;
+  color:white;
+  text-align:center;
+}
+.widget ul{
+  text-transform:uppercase;
+}
+.widget ul li{
+  list-style-type:none;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

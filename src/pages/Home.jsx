@@ -1,7 +1,8 @@
 import React,{useState}  from 'react'
 import Header from '../components/Header.jsx'
+import Footer from '../components/Footer.jsx'
 import {AllProducts} from '../context/Producs.jsx'
-import DisplayProduct from '../components/Produc.jsx'
+import DisplayProduct from '../components/Products.jsx'
 const Home = (props) =>{
   return (
     <>
@@ -14,6 +15,7 @@ const Home = (props) =>{
       
         </AllProducts.Consumer>
       </div>
+      <Footer/>
     </>
   )
 
