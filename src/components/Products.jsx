@@ -5,7 +5,7 @@ function DisplayProduct(props) {
     <>
       {props.elements?(props.elements.map(element=>{
         return(
-          element?(<ProductCard element={element}/>):("it is loading")
+          element?(<ProductCard element={element} key={element.id}/>):("it is loading")
         )
       })):("im here")}
     </>
