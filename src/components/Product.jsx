@@ -13,6 +13,12 @@ function ProductCard(props){
       }
     }
   }
+  function manageInput(e){
+    setQuantity(e.target.value)
+    if(quantity<0){
+      setQuantity(0)
+    }
+  }
   return(
   <div  className="cardProduc">
     <img className="productImage" src={image} key={id}/>
@@ -22,7 +28,7 @@ function ProductCard(props){
     </div>
     <div className="quantity">
       <button className="circularButton" onClick={()=>manageQuantity(false)}>-</button>
-      <input className="quantityInput" type="text" value={quantity} pattern="[0-9]"/>
+      <input className="quantityInput" type="text" onChange={manageInput}  value={quantity} pattern="[0-9]"/>
       <button className="circularButton" onClick={()=>manageQuantity(true)}>+</button>
     <div className="addToCartBtn">
       <button className="addToCart">ADD TO CARR</button>
