@@ -1,10 +1,15 @@
-import React from 'react'
+import React,{useState} from 'react'
+import {ShopingCart} from '../context/Cart.jsx'
 export default function Cart(props) {
+    
   function handleCartClick(evt){
     evt.preventDefault()
     console.log("this is click to show information")
-  }
+   }
+  let data=0
   return(
+    <ShopingCart.Consumer>
+      {cartFunctions =>(
     <div className="cart">
       <table className="tableCart">
         <thead>
@@ -12,11 +17,11 @@ export default function Cart(props) {
         <tbody>
         <tr>
           <td>No. Items:</td>
-          <td>25</td>
+          <td>{cartFunctions.getAmountProducts()}</td>
         </tr>
         <tr>
           <td>Sub Total:</td>
-          <td>$        </td>
+          <td>$ {cartFunctions.getSubtotal()} </td>
         </tr>
           </tbody>
       <tfoot>
@@ -30,5 +35,8 @@ export default function Cart(props) {
         />
       </button>
     </div>
+      )
+    }
+      </ShopingCart.Consumer>
   )
 }

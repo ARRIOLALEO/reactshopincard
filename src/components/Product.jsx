@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
-
+import {toast} from 'react-toastify'
+import {ShopingCart} from '../context/Cart.jsx'
+import 'react-toastify/dist/ReactToastify.css'
 function ProductCard(props){
   const [quantity,setQuantity] = useState(0)
   const{id,name,price,image} = props.element
@@ -15,11 +17,15 @@ function ProductCard(props){
   }
   function manageInput(e){
     setQuantity(e.target.value)
-    if(quantity<0){
-      setQuantity(0)
-    }
+  }
+  function manageAddTocard(data,id){
+    data.updateCart(id,parseInt(quantity),price)
+    setQuantity(0)
+    toast("The product was added to the Cart")
   }
   return(
+    <ShopingCart.Consumer>
+      {hendler=>(
   <div  className="cardProduc">
     <img className="productImage" src={image} key={id}/>
     <div className="information">
@@ -31,10 +37,11 @@ function ProductCard(props){
       <input className="quantityInput" type="text" onChange={manageInput}  value={quantity} pattern="[0-9]"/>
       <button className="circularButton" onClick={()=>manageQuantity(true)}>+</button>
     <div className="addToCartBtn">
-      <button className="addToCart">ADD TO CARR</button>
+      <button className="addToCart" onClick={()=> manageAddTocard(hendler,id,price)}>ADD TO CARR</button>
     </div>
     </div>
-      </div>
+      </div>)}
+      </ShopingCart.Consumer>
       )
 }
 export default ProductCard

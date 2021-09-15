@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCard from './Product.jsx'
+import {ToastContainer} from 'react-toastify'
 function DisplayProduct(props) {
   return(
     <>
@@ -8,6 +9,7 @@ function DisplayProduct(props) {
           element?(<ProductCard element={element} key={element.id}/>):("it is loading")
         )
       })):("im here")}
+      <ToastContainer/>
     </>
   )
 }
