@@ -19,7 +19,7 @@ function ProductCard(props){
     setQuantity(e.target.value)
   }
   function manageAddTocard(data,id){
-    data.updateCart(id,parseInt(quantity),price)
+    data.updateCart(id,parseInt(quantity),price,name)
     setQuantity(0)
     toast("The product was added to the Cart")
   }
@@ -37,7 +37,7 @@ function ProductCard(props){
       <input className="quantityInput" type="text" onChange={manageInput}  value={quantity} pattern="[0-9]"/>
       <button className="circularButton" onClick={()=>manageQuantity(true)}>+</button>
     <div className="addToCartBtn">
-      <button className="addToCart" onClick={()=> manageAddTocard(hendler,id,price)}>ADD TO CARR</button>
+      <button className="addToCart" onClick={()=> manageAddTocard(hendler,id,price,name)}>ADD TO CARR</button>
     </div>
     </div>
       </div>)}

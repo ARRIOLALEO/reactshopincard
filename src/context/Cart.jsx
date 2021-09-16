@@ -5,14 +5,14 @@ export const ShopingCart = createContext()
 const CartProvider =({children})=>{
   const [cart,setCart] = useState({})
   const [subTotal,setSubtotal]= useState(0)
-  const updateCart =(id,quantity,price)=>{
+  const updateCart =(id,quantity,price,name)=>{
     if(id in cart){
       let updateAmount = {...cart}
       updateAmount[id].quantity +=parseInt(quantity);
       setCart(updateAmount)
     }else{
       let mydict = {...cart}
-      mydict[id] ={quantity:quantity,price:price}
+      mydict[id] ={quantity:quantity,price:price,name:name}
       setCart(mydict)
     }
   }

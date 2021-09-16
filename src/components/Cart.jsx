@@ -42,8 +42,8 @@ export default function Cart(props) {
     }
       </ShopingCart.Consumer>
       <>
-        {detailCartShow?<DetailCart/>:'none'}
        </>
+      {detailCartShow?<DetailCart/>:""}
         </>
   )
 }
