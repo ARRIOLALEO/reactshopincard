@@ -1,13 +1,16 @@
 import React,{useState} from 'react'
 import {ShopingCart} from '../context/Cart.jsx'
+import DetailCart from './DetailCart.jsx'
 export default function Cart(props) {
-    
+  const [detailCartShow, setDetailShow] = useState(false)    
   function handleCartClick(evt){
     evt.preventDefault()
     console.log("this is click to show information")
+    setDetailShow(!detailCartShow)
    }
   let data=0
   return(
+    <>
     <ShopingCart.Consumer>
       {cartFunctions =>(
     <div className="cart">
@@ -38,5 +41,9 @@ export default function Cart(props) {
       )
     }
       </ShopingCart.Consumer>
+      <>
+        {detailCartShow?<DetailCart/>:'none'}
+       </>
+        </>
   )
 }
