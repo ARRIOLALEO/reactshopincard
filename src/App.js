@@ -1,21 +1,25 @@
 import React from "react";
-import {BrowserRouter as Router ,Switch, Route} from "react-router-dom"
-import Home from './pages/Home.jsx'
-import  ProducsProvider  from './context/Producs.jsx'
-import CartProvider  from './context/Cart.jsx'
-const App = () =>{
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import ProducsProvider from "./context/Producs.jsx";
+import CartProvider from "./context/Cart.jsx";
+import CartDescription from "./pages/CartDescription.jsx";
+const App = () => {
   return (
     <ProducsProvider>
       <CartProvider>
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home/>
-        </Route>
-      </Switch>
-    </Router>
-        </CartProvider>
-      </ProducsProvider>
-  )
-}
-export default App
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <route path="/cart-description">
+              <CartDescription />
+            </route>
+          </Switch>
+        </Router>
+      </CartProvider>
+    </ProducsProvider>
+  );
+};
+export default App;
