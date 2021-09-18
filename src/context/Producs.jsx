@@ -5,6 +5,7 @@ const axios = require("axios").default;
 
 const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([""]);
+  const [wordFilter, setWordFilteres] = useState("");
   useEffect(() => {
     async function getMyProducts() {
       try {
@@ -18,7 +19,12 @@ const ProductsProvider = ({ children }) => {
     }
     getMyProducts();
   }, []);
-  return <AllProducts.Provider value={products}>{children}</AllProducts.Provider>;
+  const optionsProducts = {
+    products,
+    wordFilter,
+    setWordFilteres,
+  };
+  return <AllProducts.Provider value={optionsProducts}>{children}</AllProducts.Provider>;
 };
 
 export default ProductsProvider;

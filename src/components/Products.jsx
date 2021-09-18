@@ -2,12 +2,15 @@ import React from "react";
 import ProductCard from "./Product.jsx";
 import { ToastContainer } from "react-toastify";
 function DisplayProduct(props) {
+  console.log(props);
   return (
     <>
       {props.elements
-        ? props.elements.map((element) => {
-            return element ? <ProductCard element={element} key={element.id} /> : "it is loading";
-          })
+        ? props.elements
+            .filter((element) => element.name.includes(props.filter))
+            .map((element) => {
+              return element ? <ProductCard element={element} key={element.id} /> : "it is loading";
+            })
         : "im here"}
       <ToastContainer />
     </>

@@ -10,7 +10,11 @@ const Home = (props) => {
       <div className="products">
         <AllProducts.Consumer>
           {(context) =>
-            context ? <DisplayProduct elements={context.data} /> : "<h2>im loading</h2>"
+            context.products ? (
+              <DisplayProduct elements={context.products.data} filter={context.wordFilter} />
+            ) : (
+              "<h2>im loading</h2>"
+            )
           }
         </AllProducts.Consumer>
       </div>
