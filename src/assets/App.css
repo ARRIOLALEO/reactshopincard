@@ -130,6 +130,14 @@
 .widget ul li {
   list-style-type: none;
 }
+/* css for description page */
+.containerDiv {
+  display: flex;
+  justify-content: center;
+}
+.containerDiv input {
+  max-width: 50%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -146,41 +154,41 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-.btnShowDetails{
-    width: 100%;
-    margin-top: 3%;
-    color: green;
-    height: 33px;
-    padding:1px;
-    text-align:center;
-    background-color:green;
-  }
-.btnShowDetails a{
+.btnShowDetails {
+  width: 100%;
+  margin-top: 3%;
+  color: green;
+  height: 33px;
+  padding: 1px;
+  text-align: center;
+  background-color: green;
+}
+.btnShowDetails a {
   color: white;
-  text-decoration:none;
-  margin-top:7px;
-  margin-left:-12%;
-  position:absolute;
+  text-decoration: none;
+  margin-top: 7px;
+  margin-left: -12%;
+  position: absolute;
 }
 .App-link {
   color: #61dafb;
 }
-.imageDesciption{
-  width:25%;
+.imageDesciption {
+  width: 25%;
 }
-.pageContainer{
-  width:800px;
-  margin:auto;
+.pageContainer {
+  width: 800px;
+  margin: auto;
 }
-.pageContainer table{
-  border:solid 1px black;
-  border-collapse:collapse;
+.pageContainer table {
+  border: solid 1px black;
+  border-collapse: collapse;
 }
-.pageContainer table tr{
-  background-color:white;
+.pageContainer table tr {
+  background-color: white;
 }
-.pageContainer table tr td{
-  border:solid 1px white;
+.pageContainer table tr td {
+  border: solid 1px white;
 }
 
 @keyframes App-logo-spin {

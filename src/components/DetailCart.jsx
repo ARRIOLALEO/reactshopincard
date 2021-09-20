@@ -9,7 +9,11 @@ function DetailCart() {
         <div className="cart-preview">
           <table>
             {Object.keys(carfunction.cart).map((product) => (
-              <ProductDetailCart product={carfunction.cart[product]} id={product} />
+              <ProductDetailCart
+                product={carfunction.cart[product]}
+                delete={carfunction.dropElement}
+                id={product}
+              />
             ))}
           </table>
           <div className="btnShowDetails">

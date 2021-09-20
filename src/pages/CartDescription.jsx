@@ -13,7 +13,12 @@ function CartDescription() {
             <div className="pageContainer">
               <table>
                 {Object.keys(cartFunctions.cart).map((product) => {
-                  return <DescriptionShopingCartElement product={cartFunctions.cart[product]} />;
+                  return (
+                    <DescriptionShopingCartElement
+                      id={product}
+                      product={cartFunctions.cart[product]}
+                    />
+                  );
                 })}
               </table>
             </div>

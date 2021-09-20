@@ -16,6 +16,25 @@ const CartProvider = ({ children }) => {
       setCart(mydict);
     }
   };
+  function addRemoveShopingCart(action, id) {
+    let updateCard = { ...cart };
+    if (action == "add") {
+      updateCard[id].quantity += 1;
+      setCart(updateCard);
+    } else {
+      if (updateCard[id].quantity < 2) {
+        dropElement(id);
+      } else {
+        updateCard[id].quantity -= 1;
+        setCart(updateCard);
+      }
+    }
+  }
+  function dropElement(id) {
+    const temp = { ...cart };
+    delete temp[id];
+    setCart(temp);
+  }
   function getAmountProducts() {
     let amount = 0;
     let subtotal = 0;
@@ -34,6 +53,8 @@ const CartProvider = ({ children }) => {
     cart,
     getAmountProducts,
     getSubtotal,
+    addRemoveShopingCart,
+    dropElement,
   };
   return <ShopingCart.Provider value={provierValues}>{children}</ShopingCart.Provider>;
 };
