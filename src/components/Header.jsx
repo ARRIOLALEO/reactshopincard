@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Search from "./Search.jsx";
 import logo from "../assets/bb_logo.png";
 import Cart from "./Cart.jsx";
+import app from "../base";
 const Header = (props) => {
   return (
     <div className="header">
@@ -13,6 +14,8 @@ const Header = (props) => {
       </div>
       <div className="search">
         <Search />
+        <button onClick={() => app.auth().signOut()}>signOut</button>
+        <Link to="/admin">Admin Area</Link>
       </div>
       <div className="cart">
         <Cart />
