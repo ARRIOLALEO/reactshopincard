@@ -9,6 +9,8 @@ import SignUp from "./components/SignUp.jsx";
 import Login from "./components/Login.jsx";
 import Admin from "./pages/Admin.jsx";
 import PrivateRout from "./auth/PrivateRout.jsx";
+import AddProduct from "./pages/AddProduct.jsx";
+import PrivateRoute from "./auth/PrivateRout.jsx";
 const App = () => {
   return (
     <AuthProvider>
@@ -29,6 +31,7 @@ const App = () => {
                 <SignUp />
               </route>
               <PrivateRout path="/admin" component={Admin} />
+              <PrivateRout path="/add-product" component={AddProduct} />
             </Switch>
           </Router>
         </CartProvider>
