@@ -169,6 +169,28 @@ contentaddproduct form button {
   height: 31px;
   margin-left: 15px;
 }
+/* admin page*/
+.containeradmin {
+  display: flex;
+  flex-direction: row;
+}
+.lateralmenu {
+  min-width: 15%;
+}
+.generalcontent {
+  min-width: 80%;
+}
+.containerProductAdmin {
+  display: flex;
+  flex-direction: row;
+  min-width: 800px;
+}
+.imageProductAdmin img {
+  max-width: 150px;
+}
+.containerProductAdmin div {
+  max-width: 20%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

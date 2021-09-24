@@ -24,6 +24,7 @@ function AddProduct() {
     try {
       await fileRef.put(e.target.image.files[0]).then(async () => {
         setImageReference(fileRef.getDownloadURL());
+        history.push("/admin");
       });
       await app.firestore().collection("products/").add(data);
     } catch (error) {

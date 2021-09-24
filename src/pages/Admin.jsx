@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import LateralMenu from "../components/LateralMenu.jsx";
@@ -11,7 +11,9 @@ function Admin() {
     const data = await snapshot.docs.map((doc) => doc.data());
     setProductsArr(data);
   }
-  getallPRoducts();
+  useEffect(() => {
+    getallPRoducts();
+  }, []);
   const showProducts = productArr.map((prroduct) => <ProductAdmin product={prroduct} />);
   return (
     <>
