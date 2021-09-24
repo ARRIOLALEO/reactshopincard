@@ -5,26 +5,27 @@ import app from "../base.jsx";
 import LateralMenu from "../components/LateralMenu.jsx";
 import { useHistory } from "react-router-dom";
 function AddProduct() {
+  const [imagereference, setImageReference] = useState("");
   const history = useHistory();
-  const handlarSubmit = (e) => {
+  const handlarSubmit = async (e) => {
     e.preventDefault();
-    const storageRef = app.storage().ref();
-    const fileRef = storageRef.child(e.target.image.files[0].name);
-    fileRef.put(e.target.image.files[0]).then(() => {
-      console.log("the image was upload");
-      history.push("/admin");
-    });
+    const storageRef = await app.storage().ref();
+    const fileRef = await storageRef.child(e.target.image.files[0].name);
+
     const productDetails = [...e.target.elements];
     productDetails.pop();
-    const data = productDetails.reduce((allData, element) => {
+    const data = await productDetails.reduce((allData, element) => {
       if (element.value != undefined) {
         allData[element.name] = element.value;
       }
       return allData;
     }, {});
-    data.image = e.target.image.files[0].name;
     try {
-      app.firestore().collection("products/").add(data);
+      await fileRef.put(e.target.image.files[0]).then(async () => {
+        setImageReference(fileRef.getDownloadURL());
+      });
+      data.ge = await imagereference;
+      await app.firestore().collection("products/").add(data);
     } catch (error) {
       console.log("something is not write here");
     }
