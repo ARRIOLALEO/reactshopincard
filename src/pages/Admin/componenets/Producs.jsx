@@ -1,8 +1,13 @@
 import React from "react";
 import app from "../../../base.jsx";
 
-export default function ProductAdmin(props) {
+export default async function ProductAdmin(props) {
   const { name, price, image, categorie } = props.product;
+  const storageRef = await app.storage().ref();
+  const imageRef = await storageRef.child(image);
+  imageRef.getDownloadURL().then((url) => {
+    console.log(url);
+  });
   return (
     <>
       <div className="containerProductAdmin">

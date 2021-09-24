@@ -20,11 +20,11 @@ function AddProduct() {
       }
       return allData;
     }, {});
+    data.image = e.target.image.files[0].name;
     try {
       await fileRef.put(e.target.image.files[0]).then(async () => {
         setImageReference(fileRef.getDownloadURL());
       });
-      data.ge = await imagereference;
       await app.firestore().collection("products/").add(data);
     } catch (error) {
       console.log("something is not write here");
