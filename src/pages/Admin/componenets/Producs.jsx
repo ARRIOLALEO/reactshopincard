@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import app from "../../../base.jsx";
+import product from "../../../assets/product.jpg";
 export default function ProductAdmin(props) {
   const [urlImage, setUrlImage] = useState("");
   const { name, price, image, categorie } = props.product;
@@ -12,7 +13,7 @@ export default function ProductAdmin(props) {
     <>
       <div className="containerProductAdmin">
         <div className="imageProductAdmin">
-          <img src={urlImage} />
+          <img src={urlImage ? urlImage : product} />
         </div>
         <div className="nameProductAdmin">{name}</div>
         <div className="priceProductAdmin">{price}</div>

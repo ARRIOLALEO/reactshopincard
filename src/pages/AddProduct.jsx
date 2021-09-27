@@ -26,9 +26,12 @@ function AddProduct() {
         setImageReference(fileRef.getDownloadURL());
         history.push("/admin");
       });
+      data.id = await app.database().ref().child("products").push().key;
+      console.log(data);
+
       await app.firestore().collection("products/").add(data);
     } catch (error) {
-      console.log("something is not write here");
+      console.log("something is not write here", error);
     }
   };
   return (

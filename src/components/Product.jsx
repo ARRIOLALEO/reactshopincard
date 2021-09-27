@@ -1,11 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import app from "../base.jsx";
+import product from "../assets/product.jpg";
 import { ShopingCart } from "../context/Cart.jsx";
 import "react-toastify/dist/ReactToastify.css";
 function ProductCard(props) {
+  const [imageUrl, setImaheURl] = useState("");
   const [quantity, setQuantity] = useState(0);
   const { id, name, price, image } = props.element;
-
+  /*this is how i refrest the image*/
+  useEffect(() => {
+    async function getImage() {
+      const refStorage = app.storage().ref();
+      const refImage = refStorage.child(image).getDownloadURL();
+      refImage.then((url) => setImaheURl(url));
+    }
+    getImage();
+  }, []);
   function manageQuantity(operation) {
     if (operation) {
       setQuantity(quantity + 1);
@@ -27,7 +38,7 @@ function ProductCard(props) {
     <ShopingCart.Consumer>
       {(hendler) => (
         <div className="cardProduc">
-          <img className="productImage" src={image} key={id} />
+          <img className="productImage" src={imageUrl == "" ? product : imageUrl} key={id} />
           <div className="information">
             <span>{name}</span>
             <span>{price}</span>

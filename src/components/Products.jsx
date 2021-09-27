@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./Product.jsx";
 import { ToastContainer } from "react-toastify";
 function DisplayProduct(props) {
-  console.log(props);
+  console.log("im here", props);
   return (
     <>
       {props.elements

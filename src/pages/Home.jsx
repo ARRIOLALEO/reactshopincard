@@ -11,7 +11,7 @@ const Home = (props) => {
         <AllProducts.Consumer>
           {(context) =>
             context.products ? (
-              <DisplayProduct elements={context.products.data} filter={context.wordFilter} />
+              <DisplayProduct elements={context.products[0]} filter={context.wordFilter} />
             ) : (
               "<h2>im loading</h2>"
             )
