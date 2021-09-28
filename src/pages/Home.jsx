@@ -3,10 +3,12 @@ import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 import { AllProducts } from "../context/Producs.jsx";
 import DisplayProduct from "../components/Products.jsx";
+import Jumbotron from "../components/Jumbotron.jsx";
 const Home = (props) => {
   return (
     <>
       <Header />
+      <Jumbotron />
       <div className="products">
         <AllProducts.Consumer>
           {(context) =>

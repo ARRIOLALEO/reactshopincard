@@ -1,7 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import app from "../base.jsx";
 export const AllProducts = createContext();
-const axios = require("axios").default;
 
 const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([""]);
