@@ -21,6 +21,12 @@
   display: flex;
   align-items: center;
 }
+.search input {
+  height: 35px;
+  min-width: 400px;
+  padding: 0 1rem;
+  border-radius: 9999px;
+}
 .cart {
   display: flex;
   align-items: center;
@@ -200,6 +206,62 @@ contentaddproduct form button {
   background-image: url("../assets/sliderbd.jpg");
   background-size: cover;
   background-position: center;
+}
+
+/* feature list */
+.feautesMainPage {
+  display: flex;
+  flex-direction: row;
+  max-width: 90%;
+  justify-content: space-around;
+  margin: auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.featureItem {
+  padding: 1rem;
+  border-right: solid 3px green;
+}
+.descriptionFeature {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  color: #152d00;
+  text-shadow: 1px 1px 1px black;
+}
+.feautesMainPage > div:nth-child(4) {
+  border-right: none;
+}
+.green {
+  color: green;
+}
+
+/*banner main page*/
+.containerBanerMain {
+  background-image: url(../assets/bgbanner.jpg);
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+}
+.BannerInformation {
+  margin: auto;
+  text-align: center;
+}
+.BannerInformation h1 {
+  background-color: #ec7526;
+  display-inline: block;
+  font-size: 40px;
+  color: white;
+  border-radius: 9999px;
+  padding: 10px 10px;
+}
+.BannerInformation span {
+  color: black;
+  background-color: white;
+  font-size: 20px;
+  padding: 5px 20px;
+  margin: 10px 10px;
+  border-radius: 9999px;
 }
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

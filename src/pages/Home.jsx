@@ -4,11 +4,14 @@ import Footer from "../components/Footer.jsx";
 import { AllProducts } from "../context/Producs.jsx";
 import DisplayProduct from "../components/Products.jsx";
 import Jumbotron from "../components/Jumbotron.jsx";
+import FeatureList from "../components/FeatureList.jsx";
+import BannerManPage from "../components/BannerManPage.jsx";
 const Home = (props) => {
   return (
     <>
       <Header />
       <Jumbotron />
+      <FeatureList />
       <div className="products">
         <AllProducts.Consumer>
           {(context) =>
@@ -20,6 +23,7 @@ const Home = (props) => {
           }
         </AllProducts.Consumer>
       </div>
+      <BannerManPage />
       <Footer />
     </>
   );
