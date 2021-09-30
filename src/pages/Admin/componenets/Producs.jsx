@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import app from "../../../base.jsx";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import product from "../../../assets/product.jpg";
 export default function ProductAdmin(props) {
   const history = useHistory();
@@ -38,6 +38,7 @@ export default function ProductAdmin(props) {
           <button className="removeElement" onClick={() => handleRemove({ id })}>
             Remove
           </button>
+          <Link to={{ pathname: "modify-product", state: { name: name } }}>this is my link</Link>
         </div>
       </div>
     </>
