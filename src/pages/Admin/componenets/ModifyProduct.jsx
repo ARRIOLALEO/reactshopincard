@@ -1,17 +1,24 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import Footer from "../../../components/Footer.jsx";
 import Header from "../../../components/Header.jsx";
 import app from "../../../base.jsx";
 import LateralMenu from "../../../components/LateralMenu.jsx";
 function ModifyProduct(props) {
+  const history = useHistory();
   const location = useLocation();
   const { name } = location.state;
   const [productData, setProductData] = useState({});
-
+  const [idProduct, setProductId] = useState("");
   console.log(name);
-  function handlerForm(even) {
-    even.target.preventDefault();
+  async function handlerForm(even) {
+    even.preventDefault();
+    const refDoct = await app
+      .firestore()
+      .collection("products")
+      .doc(idProduct)
+      .update({ name: even.target.name.value });
+    history.push("admin");
   }
   useEffect(() => {
     async function getData(name) {
@@ -19,6 +26,8 @@ function ModifyProduct(props) {
       const dataResolved = await refDatabse.get();
       dataResolved.forEach(async (data) => {
         try {
+          setProductId(data.id);
+          console.log("im here", idProduct);
           setProductData(data.data());
         } catch (error) {
           console.log(error);
