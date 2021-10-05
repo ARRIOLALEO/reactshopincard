@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import app from "../base.jsx";
-
+import { BallScaleRippleMultiple } from "react-pure-loaders";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -15,7 +15,13 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   if (pending) {
-    return <>Loading...</>;
+    return (
+      <div className="containerLoading">
+        <div className="loading">
+          <BallScaleRippleMultiple color="#123abc" loading={pending} />
+        </div>
+      </div>
+    );
   }
 
   return (

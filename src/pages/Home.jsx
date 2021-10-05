@@ -6,6 +6,7 @@ import DisplayProduct from "../components/Products.jsx";
 import Jumbotron from "../components/Jumbotron.jsx";
 import FeatureList from "../components/FeatureList.jsx";
 import BannerManPage from "../components/BannerManPage.jsx";
+import { BallBeat } from "react-pure-loaders";
 const Home = (props) => {
   return (
     <>
@@ -18,7 +19,7 @@ const Home = (props) => {
             context.products ? (
               <DisplayProduct elements={context.products[0]} filter={context.wordFilter} />
             ) : (
-              "<h2>im loading</h2>"
+              <>"im here loading "</>
             )
           }
         </AllProducts.Consumer>
