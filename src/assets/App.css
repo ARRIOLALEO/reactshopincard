@@ -327,7 +327,21 @@ contentaddproduct form button {
 .pageContainer table tr td {
   border: solid 1px white;
 }
-
+/* form make an order */
+.secionOrder {
+}
+.secionOrder .formOrder {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+.descriptionOrder {
+  width: 50%;
+  background-color: green;
+  border: solid 2px black;
+  min-height: 50%;
+  margin: 1rem;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

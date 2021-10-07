@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { ShopingCart } from "../context/Cart.jsx";
 import DescriptionShopingCartElement from "../components/DescriptionShopingCartElement.jsx";
+import { Link } from "react-router-dom";
 function CartDescription() {
   return (
     <>
@@ -22,6 +23,7 @@ function CartDescription() {
                 })}
               </table>
             </div>
+            <Link to="/checkout">this is my link </Link>
             <Footer />
           </>
         )}
