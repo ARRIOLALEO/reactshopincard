@@ -6,6 +6,10 @@ import app from "../base.jsx";
 function CheckOut() {
   // colect the data from the form
   //
+  //
+  // this is the hanlder for the delivery
+  const [deliveryOption, setDelivery] = useState("Deliveri");
+  const orderState = "Ordered";
   const hanlderOnsubmit = async (eve) => {
     eve.preventDefault();
     const orderDetails = [...eve.target.elements];
@@ -63,10 +67,70 @@ function CheckOut() {
                     <option value="India">India</option>
                   </select>
                 </label>
+                <label>
+                  Address 1
+                  <input name="addressone" type="text" />
+                </label>
+                <label>
+                  Address 2
+                  <input name="address2" type="text" />
+                </label>
+                <label>
+                  City
+                  <input name="city" type="text" />
+                </label>
+                <label>
+                  Delivery Options
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value={deliveryOption}
+                    onChange={() => setDelivery("Deliveryy")}
+                  />
+                  <input
+                    type="radio"
+                    name="delivery"
+                    value={deliveryOption}
+                    onChange={() => setDelivery("At Restaurant")}
+                  />
+                </label>
+                {Object.keys(cartFunctions.cart).map((product, index) => {
+                  return (
+                    <input
+                      type="hidden"
+                      name={index}
+                      value={[
+                        cartFunctions.cart[product].name,
+                        cartFunctions.cart[product].price,
+                        cartFunctions.cart[product].quantity,
+                      ]}
+                    />
+                  );
+                })}
+                <input type="hidden" name="state" value={orderState} />
                 <button type="submit"> Make and Order </button>
               </form>
             </section>
-            <section className="descriptionOrder"></section>
+            <section className="descriptionOrder">
+              <table>
+                <tr>
+                  <td>Your Order</td>
+                </tr>
+                <tr>
+                  <td>Product</td>
+                </tr>
+                {Object.keys(cartFunctions.cart).map((product) => {
+                  return (
+                    <tr>
+                      <td>
+                        {cartFunctions.cart[product].name} ({cartFunctions.cart[product].quantity})
+                      </td>
+                      <td>{cartFunctions.cart[product].price}</td>
+                    </tr>
+                  );
+                })}
+              </table>
+            </section>
           </section>
           <Footer />
         </>

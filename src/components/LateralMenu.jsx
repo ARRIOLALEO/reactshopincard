@@ -11,6 +11,9 @@ const LateralMenu = () => {
         <li>
           <Link to="/add-product">Add new Product</Link>
         </li>
+        <li>
+          <Link to="/orders"> Orders </Link>
+        </li>
       </ol>
     </div>
   );

@@ -335,6 +335,10 @@ contentaddproduct form button {
   flex-direction: column;
   margin: 1rem;
 }
+.tableOrders {
+  width: 100%;
+  border: solid 1px;
+}
 .descriptionOrder {
   width: 50%;
   background-color: green;

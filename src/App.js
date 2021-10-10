@@ -13,6 +13,7 @@ import ModifyProduct from "./pages/Admin/componenets/ModifyProduct.jsx";
 import PrivateRout from "./auth/PrivateRout.jsx";
 import AddProduct from "./pages/AddProduct.jsx";
 import PrivateRoute from "./auth/PrivateRout.jsx";
+import ShowOrders from "./pages/ShowOrders.jsx";
 const App = () => {
   return (
     <AuthProvider>
@@ -35,6 +36,7 @@ const App = () => {
               <route path="/checkout">
                 <CheckOut />
               </route>
+              <PrivateRout path="/orders" component={ShowOrders} />
               <PrivateRout path="/admin" component={Admin} />
               <PrivateRout path="/add-product" component={AddProduct} />
               <PrivateRout path="/modify-product" component={ModifyProduct} />
